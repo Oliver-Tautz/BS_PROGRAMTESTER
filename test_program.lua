@@ -1,12 +1,33 @@
 #!/usr/bin/env lua
 
+--made by Oliver Tautz 12.06.2021
+
+
+local argparse = require "argparse"
+
+local parser = argparse("test_program", "Test a program on multiple inputs with epected outputs!")
+parser:argument("program", "path of program to test. Can be absolute or relative.")
+parser:argument("vector_name", "name of the vector_name field.")
+parser:argument("vector_file", "file with test vector(s). Should be csv with \nvector_name, vector_x and vector_y fieldnames in header", "test_vec.csv")
+parser:option("--epsilon","set epsilon token to a different string.", "epsilon")
+parser:option("--delimiter","use differenmt delimiter for your csv", ";")
+parser:flag("--use-stdin", "pipe input to stdin for program to use instead of argv")
+
+
+local args = parser:parse()
+
+
+
+
 require("csv_reader")
 
-options = {program_path = "~/Documents/BS21/subs/C/todrees/todrees_schaltjahr", vector_csv = "test_vec.csv" ,
-           vector_name = "schaltjahr", epsilon_token = "epsilon", use_stdin = false, delimiter=';'}
 
 
-out_delim_str = "-------------------------------------------------------------------------------"
+local options = {program_path = args.program, vector_csv = args.vector_file ,
+           vector_name = args.vector_name, epsilon_token = args.epsilon, use_stdin = args.use_stdin, delimiter=args.delimiter}
+
+
+local out_delim_str = "-------------------------------------------------------------------------------"
 
 -- fieldnames: 
 --
@@ -39,10 +60,13 @@ for index,line in pairs(vector_lines) do
         program_out_file:close()
 
         
-        print("output\t=\n",out)
+        print("output\t=\n\n" .. out)
 
-        print("expected output\t=\n",line.vector_y)
+        print("\nexpected output\t=\n")
 
+
+        -- this is pretty dirty. How to do it in lua?!
+        os.execute("echo -e " .."\"".. line.vector_y .. "\"")
 
 
 
