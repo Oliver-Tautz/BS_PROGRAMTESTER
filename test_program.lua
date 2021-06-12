@@ -58,9 +58,13 @@ for index,line in pairs(vector_lines) do
         local program_out_file = io.popen(options.program_path .. " " .. input_args .. " 2>&1")
         local out              = program_out_file:read('a')
         program_out_file:close()
+        
 
+        -- print program output
         
         print("output\t=\n\n" .. out)
+
+        -- print expected output. use echo -e to print escaped characters like \n or \t
 
         print("\nexpected output\t=\n")
 
