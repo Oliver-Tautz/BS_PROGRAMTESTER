@@ -12,9 +12,19 @@ function split(str,seperator)
         table.insert(seperated,match)
         len = len+1
     end
+    -- somehow save length?!
     --seperated["n"]=len
     return seperated
 end
+
+
+
+-- accepts table with filename=str, delimiter = str, header = bool
+--
+-- returns table with table[i]=i-th line of csv file. line[i] is the i-th field.
+--
+-- if header the first line gets interpreted as field names and the lines can get called 
+-- by field names. table.header returns the possible fieldnames.
 
 
 function csv_file(csv_options)
@@ -33,7 +43,7 @@ function csv_file(csv_options)
         lines.header=header
     end
 
-    local line_number = 0
+    local line_number = 1
     local line =io.read("l")
 
     while line do
