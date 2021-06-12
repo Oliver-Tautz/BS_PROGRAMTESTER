@@ -18,3 +18,26 @@ pascal;15;1\n1 1 \n1 2 1 \n1 3 3 1 \n1 4 6 4 1 \n1 5 10 10 5 1 \n1 6 15 20 15 6 
 pascal;40;some negative numbers start to appear
 pascal;-123;Fehler||epsilon
 pascal;abc;Fehler||epsilon
+ggt;epsilon;Usage/Fehler
+ggt;1 2 3;Fehler || 1
+ggt;10 0;10
+ggt;-2 5;Fehler
+ggt;260 30;10
+ggt;20 4;4
+ggt;85 7;1
+ggt;1 12;1
+calc;epsilon;Fehler
+calc;x y z a;Fehler
+calc;1 + 12;13
+calc;3 - 10;-7
+calc;10 - 4;6
+calc;10 w 4;Fehler
+calc;a + b;abbruch OR 2
+calc;3 * -2;-6
+calc;+ 1 2;Fehler
+life;epsilon    ; Fehler
+life;a;Fehler
+life;a b;Fehler
+life;a b c;Fehler
+life;10 15 10 100;Ausführung
+life;-1 15 -1 100;Fehler
