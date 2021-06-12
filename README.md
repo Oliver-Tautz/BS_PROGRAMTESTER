@@ -7,7 +7,7 @@ values supplied in a csv files and prints its output in addition to the expected
 
 
 If you want to use it you will need lua. I used lua 5.4.3 but dont use any special features I think, so newer/older versions should work.
-The skript uses the argparse module. Get it here: https://github.com/mpeterv/argparse . 
+The script uses the argparse module. Get it here: https://github.com/mpeterv/argparse . 
 
 You can install lua in your home if you need to, see e.g. here: https://www.programmersought.com/article/6950130037/
 
